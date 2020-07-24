@@ -5,40 +5,62 @@
     justify-content: space-around;
     width: 100%;
     height: 650px;
-    max-height: 80vh;
-    max-width: 80vw;
+    max-height: 90vh;
     align-items: flex-end;
     div {
         display: flex;
-        width: 33%;
+        height: 100%;
+
         @media screen and (max-width: 630px){
             width: 100%;
             margin: 0 auto;
         }
-        &.needs {
-            img {
-                text-align: center;
+        &.toilet {
+            width: 33%;
+            .wastePiles {
+                display: flex;
+                align-items: flex-end;
+                margin: 0 auto;
+                @media screen and (max-width: 630px){
+                    flex-direction: column-reverse;
+                }
+
+                img {
+                    height:4rem;
+                    width: 4rem;
+                }
             }
         }
-        &.partner {
-            .sprite {
-                align-self: center;
-                margin: 0 auto;
+        &.container {
+            width: 66%;
+            flex-direction: column;
+            .needs {
+                height:25%;
+                .bubble {
+                    width: 150px;
+                    height:150px;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        width: 75px;
+                        height:75px;
+                        margin: 0 auto;
+                    }
+                }
             }
-            .baby {
-                margin-left: 50%;
-            @media screen and (max-width: 630px){
-                margin: 0 auto;
-            }
-                height: 120px;
-            }
-        }
-        &.wastePiles {
-            margin: 0 auto;
-            width: 120px;
-            text-align: center;
-            .waste {
-                height:40px;
+            .partner {
+                height: 75%;
+                img {
+                    align-self: flex-end;
+                    margin: 0 auto;
+                }
+                .baby {
+                    margin-left: 50%;
+                @media screen and (max-width: 630px){
+                    margin: 0 auto;
+                }
+                    height: 120px;
+                }
             }
         }
     }

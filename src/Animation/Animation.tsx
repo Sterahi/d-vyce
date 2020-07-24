@@ -29,7 +29,7 @@ export default class Animation extends React.Component<AnimationProps, Animation
             const {images, position} = this.state
             const newPosition = position + 1
             if(images !== undefined) {
-                if(images[newPosition] == undefined){
+                if(images[newPosition] === undefined){
                     this.setState({
                         currentImage: images[0],
                         position: 0

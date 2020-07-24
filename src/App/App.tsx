@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.scss';
 import Display from "../Display/Display"
+import Actions from "../Actions/Actions"
 
 import { observer, inject } from "mobx-react"
 
@@ -32,6 +33,7 @@ export default class App extends React.Component{
       <div className ="App" style = {{
         background: `url(${background}) center bottom / cover no-repeat`
       }}>
+        <Actions />
         <Display />
       </div>
     )
