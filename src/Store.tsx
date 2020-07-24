@@ -17,31 +17,36 @@ export default class DviceStore {
     }
     @observable needs = {
         sick: 0,
-        hungry: 0,
+        hunger: 0,
         evolving: 0
     }
+
     @action.bound cleanPoop() {
         this.poopCount = 0
     }
     @action.bound poop() {
         if(this.poopCount < 0) {
             this.poopCount = 0
-        } else if (this.poopCount < 4) {
+        } else if (this.poopCount <= 3) {
             this.poopCount++
         } else {
             this.sick = 1
+            this.needs.sick = 1
         }
     }
     @action.bound feedDigi() {
         this.hungry = 0
     }
     @action.bound hungryDigi() {
-        if(this.hungry < 0) {
+        if(this.hungry < 0 && this.needs.hunger) {
             this.hungry = 0
+            this.needs.hunger = 0
         } else if (this.hungry < 4) {
             this.hungry++
+            this.needs.hunger++
         } else {
             this.sick = 1
+            this.needs.sick = 1
         }
     }
     @action.bound medicine() {

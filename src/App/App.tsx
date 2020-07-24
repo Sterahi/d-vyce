@@ -18,7 +18,6 @@ export default class App extends React.Component{
     setInterval(() => {
       this.props["dviceStore"].poop()
       timer = Math.floor(10000 + Math.random() * 90000)
-      console.log("waste timer", timer)
     }, timer)
   }
   foodTimer() {
