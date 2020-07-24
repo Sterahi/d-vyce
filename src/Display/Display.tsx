@@ -6,6 +6,8 @@ import {observer, inject} from 'mobx-react'
 import kuramon_1 from './img/kuramon-1.png'
 import kuramon_2 from './img/kuramon-2.png'
 import poop from './img/poop.png'
+
+import speachBubble from "./img/needs/speachBubble.png"
 export interface Readonly {
     poopCount: number
 }
@@ -49,7 +51,8 @@ export default class Display extends React.Component {
                     </div>
                 </div>
                 <div>
-                    {/* TODO: Add Actions above & Below */}
+                    <div className = "needs">
+                    </div>
                 </div>
                 <div className = "partner">
                     {/* TODO: add in needs (steal assets from Spriters /) */}

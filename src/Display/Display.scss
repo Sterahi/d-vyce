@@ -11,6 +11,15 @@
     div {
         display: flex;
         width: 33%;
+        @media screen and (max-width: 630px){
+            width: 100%;
+            margin: 0 auto;
+        }
+        &.needs {
+            img {
+                text-align: center;
+            }
+        }
         &.partner {
             .sprite {
                 align-self: center;
@@ -18,11 +27,16 @@
             }
             .baby {
                 margin-left: 50%;
+            @media screen and (max-width: 630px){
+                margin: 0 auto;
+            }
                 height: 120px;
             }
         }
-        .wastePiles {
-            align-self: flex-end;
+        &.wastePiles {
+            margin: 0 auto;
+            width: 120px;
+            text-align: center;
             .waste {
                 height:40px;
             }
