@@ -16,17 +16,17 @@ export default class App extends React.Component{
     this.evoTimer()
   }
   wasteTimer() {
-    let timer = Math.floor(10000 + Math.random() * 90000)
+    let timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
     setInterval(() => {
       this.props["dviceStore"].poop()
-      timer = Math.floor(10000 + Math.random() * 90000)
+      timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
     }, timer)
   }
   foodTimer() {
-    let timer  = Math.floor(10000 + Math.random() * 90000)
+    let timer  = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
     setInterval(() => {
       this.props["dviceStore"].hungryDigi()
-      timer = Math.floor(10000 + Math.random() * 90000)
+      timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
     }, timer)
   }
   evoTimer() {
@@ -46,7 +46,7 @@ export default class App extends React.Component{
         }
         console.log(stats)
       });
-    }, (100 * 60 * 60))
+    }, (100 * 60 * 60 *this.props["dviceStore"].stats.stage))
   }
 
   render() {

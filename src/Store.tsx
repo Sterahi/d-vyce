@@ -10,7 +10,7 @@ export default class DviceStore {
         dexterity: 10,
         mind: 10,
         intelligence: 10,
-        stage: 0,
+        stage: 1,
         species: 'botamon'
 
     }
@@ -59,6 +59,9 @@ export default class DviceStore {
             `Partners/${this.stats.species}_1`,
             `Partners/${this.stats.species}_2`
         ]
+    }
+    @action train(stat) {
+        this.stats[stat] +=5
     }
 }
 

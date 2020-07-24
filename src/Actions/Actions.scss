@@ -6,6 +6,8 @@
     margin-top:-3px;
     top:0;
     justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
     .button {
         width: 120px;
         background-color: rgba(0,0,0, 0.7);

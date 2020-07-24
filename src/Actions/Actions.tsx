@@ -24,6 +24,18 @@ export default class Actions extends React.Component {
                     <Animation images = {['needs/needle_1', 'needs/needle_2']} speed = {500} /> 
                     Medicine
                 </div>
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("strength")}}>
+                    Strength
+                </div>
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("dexterity")}}>
+                    Dexterity
+                </div>
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("mind")}}>
+                    Mind
+                </div>
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("intelligence")}}>
+                    Intelligence
+                </div>
             </div>
         )
     }
