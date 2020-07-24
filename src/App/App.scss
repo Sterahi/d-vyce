@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  width: 100vw;
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+  }
+}
