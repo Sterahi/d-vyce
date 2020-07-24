@@ -11,7 +11,7 @@ export default class DviceStore {
         mind: 10,
         intelligence: 10,
         stage: 0,
-        species: 'koromon'
+        species: 'botamon'
 
     }
     @observable needs = {

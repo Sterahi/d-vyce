@@ -46,8 +46,7 @@ export default class App extends React.Component{
         }
         console.log(stats)
       });
-    }, 10000)
-  // }, (100 * 60 * 60))
+    }, (100 * 60 * 60))
   }
 
   render() {
