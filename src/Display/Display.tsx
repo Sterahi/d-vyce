@@ -26,6 +26,7 @@ export default class Display extends React.Component {
                     <Animation images = {['needs/Meat_full', 'needs/meat_3', 'needs/meat_2', 'needs/meat_1']} speed = {800} />
                 </div>
         }
+        console.log(this.props["dviceStore"].stats.species)
         return (
             <div className = "Display">
                 <div className = "toilet">
@@ -45,7 +46,7 @@ export default class Display extends React.Component {
                         {hungerRender}
                     </div>
                     <div className = "partner">
-                        <Animation images = {['Partners/kuramon-1', 'Partners/kuramon-2']} speed = {700}/>
+                        <Animation images = {this.props["dviceStore"].partnerImages} speed = {700}/>
                     </div>
                 </div>
             </div>

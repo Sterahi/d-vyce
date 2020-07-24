@@ -24,6 +24,14 @@ export default class Animation extends React.Component<AnimationProps, Animation
     componentDidMount() {
         this.animation()
     }
+    componentDidUpdate() {
+        if (this.state.images !== this.props.images) {
+
+            this.setState({
+                images: this.props.images
+            })
+        }
+    }
     animation() {
         setInterval(() => {
             const {images, position} = this.state

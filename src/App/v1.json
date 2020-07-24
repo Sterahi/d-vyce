@@ -1,0 +1,88 @@
+{
+    "botamon": {
+        "evolutions": [
+            {
+                "name": "koromon",
+                "stats": {
+                    "strength": 5,
+                    "dexterity": 5,
+                    "mind": 5,
+                    "intelligence": 5
+                }
+            }
+        ]
+    },
+    "koromon": {
+        "evolutions": [
+            {
+                "name": "Agumon",
+                "stats": {
+                    "strength": 5,
+                    "dexterity": 5
+                }
+            }, {
+                "name": "Betamon",
+                "stats": {
+                    "mind": 15,
+                    "intelligence": 15
+                }
+            }
+        ]
+    },
+    "agumon": {
+        "evolutions": [
+            {
+                "name": "Greymon", 
+                "stats": {
+                    "strength": 20
+                }
+            }, {
+                "name": "Tyranomon", 
+                "stats": {
+                    "dexterity": 20
+                }
+            },{
+                "name": "Devimon", 
+                "stats": {
+                    "mind": 20
+                }
+            },{
+                "name": "Meramon", 
+                "stats": {
+                    "intelligence": 20
+                }
+            },{
+                "name": "Numemon", 
+                "stats": {}
+            }
+        ] 
+    }, 
+    "betamon": {
+        "evolutions": [
+            {
+                "name": "Devimon", 
+                "stats": {
+                    "mind":20
+                }
+            },{
+                "name": "Meramon", 
+                "stats": {
+                    "intelligence":20
+                }
+            },{
+                "name": "Airdramon", 
+                "stats": {
+                    "dexterity": 20
+                }
+            },{
+                "name": "Seadramon", 
+                "stats": {
+                    "strength": 20
+                }
+            },{
+                "name": "Numemon", 
+                "stats": {}
+            }
+        ]
+    }
+}

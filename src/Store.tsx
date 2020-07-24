@@ -10,13 +10,19 @@ export default class DviceStore {
         dexterity: 10,
         mind: 10,
         intelligence: 10,
-        stage: 'baby'
+        stage: 0,
+        species: 'koromon'
+
     }
     @observable needs = {
         sick: 0,
         hunger: 0,
         evolving: 0
     }
+    @observable partnerImages = [
+        `Partners/${this.stats.species}_1`,
+        `Partners/${this.stats.species}_2`
+    ]
 
     @action.bound cleanPoop() {
         this.poopCount = 0
@@ -44,6 +50,15 @@ export default class DviceStore {
     }
     @action.bound medicine() {
         this.needs.sick = 0
+    }
+
+    @action species(evolution) {
+        this.stats.species = evolution
+        this.stats.stage++
+        this.partnerImages = [
+            `Partners/${this.stats.species}_1`,
+            `Partners/${this.stats.species}_2`
+        ]
     }
 }
 
