@@ -8,8 +8,8 @@ export default class DviceStore {
     @observable stats = {
         strength: 10,
         dexterity: 10,
-        mind: 10,
-        intelligence: 10,
+        mind: 3,
+        intelligence: 3,
         stage: 1,
         species: 'botamon'
     }
@@ -36,7 +36,19 @@ export default class DviceStore {
         }
     }
     @action.bound feedDigi() {
+        // setInterval(() => {
+        this.partnerImages = [
+            `Partners/${this.stats.species}_eat_1`,
+            `Partners/${this.stats.species}_eat_2`
+        ]
+        // }, 1400)
         this.needs.hunger--
+        setTimeout(() => {
+            this.partnerImages =  [
+                `Partners/${this.stats.species}_1`,
+                `Partners/${this.stats.species}_2`
+            ]
+        }, 5000)
     }
     @action.bound hungryDigi() {
         if(this.needs.hunger < 0) {

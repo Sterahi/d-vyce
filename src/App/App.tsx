@@ -35,17 +35,14 @@ export default class App extends React.Component{
       const evoData = data[this.props["dviceStore"].stats.species].evolutions
       stats = this.props["dviceStore"].stats
       evoData.forEach(evo => {
-        if(evo.stats.dexterity <= stats.dexterity){
-          this.props["dviceStore"].species(evo.name.toLowerCase())
-        } else if (evo.stats.strength <= stats.strength) {
-          this.props["dviceStore"].species(evo.name.toLowerCase())
-        } else if (evo.stats.intelligence <= stats.intelligence){
-          this.props["dviceStore"].species(evo.name.toLowerCase())
-        } else if (evo.stats.mind <= stats.mind) {
-          this.props["dviceStore"].species(evo.name.toLowerCase())
-        }
-        console.log(stats)
+        Object.keys(evo.stats).forEach(targetStats => {
+          if(stats[targetStats] >= evo.stats[targetStats]){
+            this.props["dviceStore"].species(evo.name.toLowerCase())
+          }
+        })
+        
       });
+    // }, 1000)
     }, (100 * 60 * 60 *this.props["dviceStore"].stats.stage))
   }
 

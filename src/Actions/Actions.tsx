@@ -11,6 +11,7 @@ export default class Actions extends React.Component {
 
     render() {
         return (
+            <>
             <div className = "Actions">
                 <div className = "button" onClick = {this.props["dviceStore"].cleanPoop}>
                     <Animation images = {['needs/poop_1', 'needs/poop_2', 'needs/poop_3', "needs/poop_2"]} speed = {500} /> 
@@ -28,6 +29,8 @@ export default class Actions extends React.Component {
                     <Animation images = {['needs/sleep_1', 'needs/sleep_2', 'needs/sleep_3']} speed = {500} /> 
                     Sleep
                 </div>
+            </div>
+            <div className = "Actions">
                 <div className = "button" onClick = {() => { this.props["dviceStore"].train("strength")}}>
                     Strength
                 </div>
@@ -41,6 +44,7 @@ export default class Actions extends React.Component {
                     Intelligence
                 </div>
             </div>
+            </>
         )
     }
 }

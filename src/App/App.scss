@@ -1,8 +1,9 @@
 .App {
   display: flex;
-  width: 100vw;
+  width: 105vw;
+  height: 105vh;
   margin: 0 auto;
-  height: 100vh;
+  margin-left: -5px;
   overflow: hidden;
 
   align-items: center;
