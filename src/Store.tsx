@@ -1,15 +1,18 @@
 import {observable, action } from "mobx"
 export default class DviceStore {
     @observable poopCount = 0
+    @observable lifeCounter = 20
     constructor() {
         this.poopCount = 0
     }
+
+    @observable isEating = false
     
     @observable stats = {
-        strength: 10,
-        dexterity: 10,
-        mind: 3,
-        intelligence: 3,
+        offense: 3,
+        defense: 3,
+        speed: 3,
+        brains: 3,
         stage: 1,
         species: 'botamon'
     }
@@ -33,21 +36,25 @@ export default class DviceStore {
             this.poopCount++
         } else {
             this.needs.sick = 1
+            this.lifeCounter--
+            if(this.lifeCounter >=0) {
+                this.stats.species = 'botamon'
+            }
         }
     }
     @action.bound feedDigi() {
-        // setInterval(() => {
         this.partnerImages = [
             `Partners/${this.stats.species}_eat_1`,
             `Partners/${this.stats.species}_eat_2`
         ]
-        // }, 1400)
         this.needs.hunger--
+        this.isEating = true
         setTimeout(() => {
             this.partnerImages =  [
                 `Partners/${this.stats.species}_1`,
                 `Partners/${this.stats.species}_2`
             ]
+            this.isEating = false
         }, 5000)
     }
     @action.bound hungryDigi() {
@@ -57,6 +64,10 @@ export default class DviceStore {
             this.needs.hunger++
         } else {
             this.needs.sick = 1
+            this.lifeCounter--
+            if(this.lifeCounter >=0) {
+                this.stats.species = 'botamon'
+            }
         }
     }
     @action.bound medicine() {

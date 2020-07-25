@@ -31,17 +31,17 @@ export default class Actions extends React.Component {
                 </div>
             </div>
             <div className = "Actions">
-                <div className = "button" onClick = {() => { this.props["dviceStore"].train("strength")}}>
-                    Strength
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("offense")}}>
+                    Offense
                 </div>
-                <div className = "button" onClick = {() => { this.props["dviceStore"].train("dexterity")}}>
-                    Dexterity
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("defense")}}>
+                    Defense
                 </div>
-                <div className = "button" onClick = {() => { this.props["dviceStore"].train("mind")}}>
-                    Mind
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("speed")}}>
+                    Speed
                 </div>
-                <div className = "button" onClick = {() => { this.props["dviceStore"].train("intelligence")}}>
-                    Intelligence
+                <div className = "button" onClick = {() => { this.props["dviceStore"].train("brains")}}>
+                    Brains
                 </div>
             </div>
             </>
