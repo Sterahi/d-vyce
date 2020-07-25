@@ -37,6 +37,7 @@
         &.container {
             width: 66%;
             flex-direction: column;
+            height: 90%;
             .needs {
                 height:25%;
                 .bubble {
@@ -52,7 +53,7 @@
                 }
             }
             .partner {
-                height: 75%;
+                height: 60%;
                 img {
                     align-self: flex-end;
                     margin: 0 auto;

@@ -12,7 +12,6 @@ export default class DviceStore {
         intelligence: 10,
         stage: 1,
         species: 'botamon'
-
     }
     @observable needs = {
         sick: 0,
