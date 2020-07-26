@@ -4,6 +4,7 @@ import Display from "../Display/Display"
 import Actions from "../Actions/Actions"
 
 import { observer, inject } from "mobx-react"
+import { DateTime } from "luxon"
 
 import background from "./background_night.png"
 import data from "./v1.json"
@@ -11,39 +12,44 @@ import data from "./v1.json"
 @observer
 export default class App extends React.Component{
   componentDidMount() {
-    this.wasteTimer()
-    this.foodTimer()
-    this.evoTimer()
+    this.timer()
+    this.evoCheck()
+    this.wasteCheck()
+    this.foodCheck()
+    this.props["dviceStore"].setStore()
   }
-  wasteTimer() {
-    let timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
+  timer() {
     setInterval(() => {
+      this.evoCheck()
+      this.wasteCheck()
+      this.foodCheck()
+      this.props["dviceStore"].setStore()
+    // }, 100)
+    }, 60000)
+  }
+  wasteCheck() {
+    if(this.props["dviceStore"].nextPoopTime <= DateTime.local().toSeconds()) {
       this.props["dviceStore"].poop()
-      timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
-    }, timer)
+    }
   }
-  foodTimer() {
-    let timer  = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
-    setInterval(() => {
-      this.props["dviceStore"].hungryDigi()
-      timer = Math.floor((100 * 60 * 60 * this.props["dviceStore"].stats.stage) + Math.random() * 90000)
-    }, timer)
+  foodCheck() {
+    if(this.props["dviceStore"].nextHungerTime <= DateTime.local().toSeconds()) {
+      this.props["dviceStore"].poop()
+    }
   }
-  evoTimer() {
-    let stats 
-    setInterval(() => {
+  evoCheck() {
+    if(this.props["dviceStore"].evolutionTime <= DateTime.local().toSeconds()) {
       const evoData = data[this.props["dviceStore"].stats.species].evolutions
-      stats = this.props["dviceStore"].stats
+      const stats = this.props["dviceStore"].stats
       evoData.forEach(evo => {
         Object.keys(evo.stats).forEach(targetStats => {
           if(stats[targetStats] >= evo.stats[targetStats]){
             this.props["dviceStore"].species(evo.name.toLowerCase())
+            this.props["dviceStore"].evolutionTime = this.props["dviceStore"].evolutionTime[this.props["dviceStore"].stats.stage]
           }
         })
-        
-      });
-    // }, 1000)
-    }, (100 * 60 * 60 *this.props["dviceStore"].stats.stage))
+      })
+    }
   }
 
   render() {

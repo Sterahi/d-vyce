@@ -4,10 +4,10 @@
             {
                 "name": "koromon",
                 "stats": {
-                    "strength": 2,
-                    "dexterity": 2,
-                    "mind": 2,
-                    "intelligence": 2
+                    "offense": 2,
+                    "defense": 2,
+                    "speed": 2,
+                    "brains": 2
                 }
             }
         ]
@@ -17,14 +17,14 @@
             {
                 "name": "Agumon",
                 "stats": {
-                    "strength": 5,
-                    "dexterity": 5
+                    "offense": 5,
+                    "defense": 5
                 }
             }, {
                 "name": "Betamon",
                 "stats": {
-                    "mind": 5,
-                    "intelligence": 5
+                    "speed": 5,
+                    "brains": 5
                 }
             }
         ]
@@ -34,22 +34,22 @@
             {
                 "name": "Greymon", 
                 "stats": {
-                    "strength": 20
+                    "offense": 20
                 }
             }, {
                 "name": "Tyranomon", 
                 "stats": {
-                    "dexterity": 20
+                    "defense": 20
                 }
             },{
                 "name": "Devimon", 
                 "stats": {
-                    "mind": 20
+                    "speed": 20
                 }
             },{
                 "name": "Meramon", 
                 "stats": {
-                    "intelligence": 20
+                    "brains": 20
                 }
             },{
                 "name": "Numemon", 
@@ -62,22 +62,22 @@
             {
                 "name": "Devimon", 
                 "stats": {
-                    "mind":20
+                    "speed":20
                 }
             },{
                 "name": "Meramon", 
                 "stats": {
-                    "intelligence":20
+                    "brains":20
                 }
             },{
                 "name": "Airdramon", 
                 "stats": {
-                    "dexterity": 20
+                    "defense": 20
                 }
             },{
                 "name": "Seadramon", 
                 "stats": {
-                    "strength": 20
+                    "offense": 20
                 }
             },{
                 "name": "Numemon", 
@@ -90,7 +90,7 @@
             {
                 "name": "Metalgreymon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -100,7 +100,7 @@
             {
                 "name": "Metalgreymon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -110,7 +110,7 @@
             {
                 "name": "Metalgreymon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -120,7 +120,7 @@
             {
                 "name": "Monzaemon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -130,7 +130,7 @@
             {
                 "name": "Mamemon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -140,7 +140,7 @@
             {
                 "name": "Mamemon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -150,7 +150,7 @@
             {
                 "name": "Mamemon",
                 "stats": {
-                    "strength": 40
+                    "offense": 40
                 }
             }
         ]
@@ -160,7 +160,7 @@
             {
                 "name": "Blitzgreymon",
                 "stats": {
-                    "strength": 60
+                    "offense": 60
                 }
             }
         ]
@@ -170,7 +170,7 @@
             {
                 "name": "Banchomamemon",
                 "stats": {
-                    "strength": 60
+                    "offense": 60
                 }
             }
         ]

@@ -1,13 +1,50 @@
-import {observable, action } from "mobx"
+import {observable, action, toJS, set } from "mobx"
+import {DateTime} from 'luxon'
+
 export default class DviceStore {
     @observable poopCount = 0
     @observable lifeCounter = 20
+    @observable isEating = false
+
+    @observable nextPoopTime
+    @observable nextHungerTime
+    @observable evolutionTime
+    @observable firstRun = true
+    
     constructor() {
-        this.poopCount = 0
+        if(localStorage.store === undefined) {
+            this.poopCount = 0
+            this.lifeCounter = 20
+            let evoTime = this.evolutionTimes[this.stats.stage]
+            this.evolutionTime = evoTime
+            this.stats = {
+                offense: 3,
+                defense: 3,
+                speed: 3,
+                brains: 3,
+                stage: 1,
+                species: 'botamon'
+            }
+            this.needs = {
+                sick: 0,
+                hunger: 0,
+                evolving: 0
+            }
+            this.nextPoopTime   = DateTime.local().plus({minutes: 30}).toSeconds()
+            this.nextHungerTime = DateTime.local().plus({minutes: 30}).toSeconds()
+        } else {
+            set(this, JSON.parse(localStorage.store))
+        }
+    }
+    evolutionTimes = {
+        "1": DateTime.local().plus({seconds: 10}).toSeconds(),
+        "2": DateTime.local().plus({hours: 1}).toSeconds(),
+        "3": DateTime.local().plus({hours: 12}).toSeconds(),
+        "4": DateTime.local().plus({days: 2}).toSeconds(),
+        "5": DateTime.local().plus({days: 3}).toSeconds(),
+        "6": DateTime.local().plus({days: 10}).toSeconds(),
     }
 
-    @observable isEating = false
-    
     @observable stats = {
         offense: 3,
         defense: 3,
@@ -28,6 +65,7 @@ export default class DviceStore {
 
     @action.bound cleanPoop() {
         this.poopCount = 0
+        this.setStore()
     }
     @action.bound poop() {
         if(this.poopCount < 0) {
@@ -37,10 +75,11 @@ export default class DviceStore {
         } else {
             this.needs.sick = 1
             this.lifeCounter--
-            if(this.lifeCounter >=0) {
-                this.stats.species = 'botamon'
+            if(this.lifeCounter <= 0) {
+                this.death()
             }
         }
+        this.setStore()
     }
     @action.bound feedDigi() {
         this.partnerImages = [
@@ -54,6 +93,7 @@ export default class DviceStore {
                 `Partners/${this.stats.species}_1`,
                 `Partners/${this.stats.species}_2`
             ]
+            this.setStore()
             this.isEating = false
         }, 5000)
     }
@@ -65,13 +105,15 @@ export default class DviceStore {
         } else {
             this.needs.sick = 1
             this.lifeCounter--
-            if(this.lifeCounter >=0) {
-                this.stats.species = 'botamon'
+            if(this.lifeCounter >= 0) {
+                this.death()
             }
         }
+        this.setStore()
     }
     @action.bound medicine() {
         this.needs.sick = 0
+        this.setStore()
     }
 
     @action species(evolution) {
@@ -81,19 +123,31 @@ export default class DviceStore {
             `Partners/${this.stats.species}_1`,
             `Partners/${this.stats.species}_2`
         ]
+        this.evolutionTime = this.evolutionTimes[this.stats.stage]
+        this.setStore()
     }
     @action train(stat) {
         this.stats[stat] +=5
+        this.setStore()
+    }
+    @action death() {
+        this.stats = {
+            offense: 3,
+            defense: 3,
+            speed: 3,
+            brains: 3,
+            stage: 1,
+            species: 'botamon'
+        }
+        this.needs =  {
+            sick: 0,
+            hunger: 0,
+            evolving: 0
+        }
+        this.lifeCounter = 20
+    }
+
+    setStore = () => {
+        localStorage.setItem('store', JSON.stringify(toJS(this)))
     }
 }
-
-export interface DviceProps {
-    dviceStore?: {
-        poopCount?: number
-        hungry?: boolean
-        time?: number
-        cleanPoop?: Function
-        poop?: Function
-        feedDigi?: Function
-    }
-}   
