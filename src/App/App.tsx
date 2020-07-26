@@ -28,13 +28,16 @@ export default class App extends React.Component{
     }, 60000)
   }
   wasteCheck() {
+    console.log(this.props["dviceStore"].nextPoopTime)
     if(this.props["dviceStore"].nextPoopTime <= DateTime.local().toSeconds()) {
       this.props["dviceStore"].poop()
+      this.props["dviceStore"].nextPoopTime = DateTime.local().plus({hours: 1}).toSeconds()
     }
   }
   foodCheck() {
     if(this.props["dviceStore"].nextHungerTime <= DateTime.local().toSeconds()) {
       this.props["dviceStore"].poop()
+      this.props["dviceStore"].nextHungerTime = DateTime.local().plus({hours: 1}).toSeconds()
     }
   }
   evoCheck() {
