@@ -63,7 +63,7 @@ export default class App extends React.Component{
         Object.keys(evo.stats).forEach(targetStats => {
           if(stats[targetStats] >= evo.stats[targetStats]){
             this.props["dviceStore"].species(evo.name.toLowerCase())
-            this.props["dviceStore"].evolutionTime = evoTimes[this.props["dviceStore"].stats.stage]
+            this.props["dviceStore"].evolutionTime = DateTime.local().plus({seconds: 15}).toSeconds()
           }
         })
       })
