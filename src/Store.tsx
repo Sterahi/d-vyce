@@ -30,19 +30,27 @@ export default class DviceStore {
                 hunger: 0,
                 evolving: 0
             }
-            this.nextPoopTime   = DateTime.local().plus({minutes: 30}).toSeconds()
-            this.nextHungerTime = DateTime.local().plus({minutes: 30}).toSeconds()
+            // this.nextPoopTime   = DateTime.local().plus({minutes: 30}).toSeconds()
+            // this.nextHungerTime = DateTime.local().plus({minutes: 30}).toSeconds()
+            this.nextPoopTime   = DateTime.local().plus({seconds: 15}).toSeconds()
+            this.nextHungerTime = DateTime.local().plus({seconds: 15}).toSeconds()
         } else {
             set(this, JSON.parse(localStorage.store))
         }
     }
     evolutionTimes = {
-        "1": DateTime.local().plus({seconds: 10}).toSeconds(),
-        "2": DateTime.local().plus({hours: 1}).toSeconds(),
-        "3": DateTime.local().plus({hours: 12}).toSeconds(),
-        "4": DateTime.local().plus({days: 2}).toSeconds(),
-        "5": DateTime.local().plus({days: 3}).toSeconds(),
-        "6": DateTime.local().plus({days: 10}).toSeconds(),
+        // "1": DateTime.local().plus({seconds: 10}).toSeconds(),
+        // "2": DateTime.local().plus({hours: 1}).toSeconds(),
+        // "3": DateTime.local().plus({hours: 12}).toSeconds(),
+        // "4": DateTime.local().plus({days: 2}).toSeconds(),
+        // "5": DateTime.local().plus({days: 3}).toSeconds(),
+        // "6": DateTime.local().plus({days: 10}).toSeconds(),
+        "1": DateTime.local().plus({seconds: 15}).toSeconds(),
+        "2": DateTime.local().plus({seconds: 15}).toSeconds(),
+        "3": DateTime.local().plus({seconds: 15}).toSeconds(),
+        "4": DateTime.local().plus({seconds: 15}).toSeconds(),
+        "5": DateTime.local().plus({seconds: 15}).toSeconds(),
+        "6": DateTime.local().plus({seconds: 15}).toSeconds(),
     }
 
     @observable stats = {
@@ -123,8 +131,11 @@ export default class DviceStore {
             `Partners/${this.stats.species}_1`,
             `Partners/${this.stats.species}_2`
         ]
-        this.evolutionTime = this.evolutionTimes[this.stats.stage]
+        this.updateEvoTime()
         this.setStore()
+    }
+    @action updateEvoTime() {
+        this.evolutionTime = DateTime.local().plus({seconds: 15}).toSeconds()
     }
     @action train(stat) {
         this.stats[stat] +=5
