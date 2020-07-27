@@ -44,21 +44,21 @@ export default class App extends React.Component{
       const evoData = data[this.props["dviceStore"].stats.species].evolutions
       const stats = this.props["dviceStore"].stats
       evoData.forEach(evo => {
-        const evoTimes = {
-          "1": DateTime.local().plus({hours: 1}).toSeconds(),
-          "2": DateTime.local().plus({hours: 12}).toSeconds(),
-          "3": DateTime.local().plus({days: 2}).toSeconds(),
-          "4": DateTime.local().plus({days: 3}).toSeconds(),
-          "5": DateTime.local().plus({days: 10}).toSeconds()
-        }
-        if(this.props["dviceStore"].evolutionTime === undefined) {
-          this.props["dviceStore"].evolutionTime = evoTimes[this.props["dviceStore"].stats.stage]
+        // const evoTimes = {
+        //   "1": DateTime.local().plus({hours: 1}).toSeconds(),
+        //   "2": DateTime.local().plus({hours: 12}).toSeconds(),
+        //   "3": DateTime.local().plus({days: 2}).toSeconds(),
+        //   "4": DateTime.local().plus({days: 3}).toSeconds(),
+        //   "5": DateTime.local().plus({days: 10}).toSeconds()
+        // }
+        // if(this.props["dviceStore"].evolutionTime === undefined) {
+        //   this.props["dviceStore"].evolutionTime = evoTimes[this.props["dviceStore"].stats.stage]
 
-        }
+        // }
         Object.keys(evo.stats).forEach(targetStats => {
           if(stats[targetStats] >= evo.stats[targetStats]){
             this.props["dviceStore"].species(evo.name.toLowerCase())
-            this.props["dviceStore"].evolutionTime = evoTimes[this.props["dviceStore"].stats.stage]
+            // this.props["dviceStore"].evolutionTime = evoTimes[this.props["dviceStore"].stats.stage]
           }
         })
       })
