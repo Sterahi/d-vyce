@@ -9,7 +9,6 @@
     @media screen and (max-width: 630px){
         max-height: 50vh;
     }
-    align-items: flex-end;
     div {
         display: flex;
         height: 100%;
@@ -64,6 +63,21 @@
                     margin: 0 auto;
                 }
                     height: 120px;
+                }
+            }
+        }
+        &.eggContainer {
+            flex-direction: row;
+            flex-wrap: wrap;
+            .egg {
+                width: 150px;
+                height:150px;
+                cursor: pointer;
+                img {
+                    width: 75px;
+                    height: 75px;
+                    margin: 0 auto;
+                    align-self: center;
                 }
             }
         }
